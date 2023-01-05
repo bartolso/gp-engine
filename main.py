@@ -23,6 +23,7 @@ TODO: poner las faltas en el dataframe
 '''
 import pandas as pd
 import numpy as np
+import openpyxl
 from datetime import datetime
 
 import gp
@@ -90,7 +91,7 @@ def run_days(df):
                                 gp_time = datetime.strptime(gp, '%H:%M:%S').time()
                                 if gp_time < mbd_time:
                                     if not foul_today:
-                                        fouls.append([str(current_day), 'GPBFMBD', str(gp_time)])
+                                        fouls.append([str(current_day), 'GPaMBD', str(gp_time)])
                                         foul_today = True
                                 else:
                                     pass
@@ -99,7 +100,7 @@ def run_days(df):
                                     drg_time = datetime.strptime(str(cdf['HORA_DRG']), '%H:%M:%S').time()
                                     if mbd_time > drg_time:
                                         if not foul_today:
-                                            fouls.append([str(current_day), 'GPBFMBD', str(gp_time)])
+                                            fouls.append([str(current_day), 'GPaMBD', str(gp_time)])
                                             foul_today = True
                                 else:
                                     #Hoy no ha habido drg
@@ -113,7 +114,7 @@ def run_days(df):
 
                             if gp_time < mbd_time:
                                 if not foul_today:
-                                    fouls.append([str(current_day), 'GPBFMBD', str(gp_time)])
+                                    fouls.append([str(current_day), 'GPaMBD', str(gp_time)])
                                     foul_today = True
                             else:
                                 #No se ha gepeado antes del MBD, no hay falta
@@ -126,7 +127,7 @@ def run_days(df):
 
                                 if gp_time > drg_time:
                                     if not foul_today:
-                                        fouls.append([str(current_day), 'GPAFDRG', str(gp_time)])
+                                        fouls.append([str(current_day), 'GPdDRG', str(gp_time)])
                                         foul_today = True
                             else:
                                 #No ha habido drg hoy
@@ -135,7 +136,7 @@ def run_days(df):
                     #Chequear si se ha gepeado sin MBD hoy
                     if str(cdf[player_name]) != 'nan':
                         if not foul_today:
-                            fouls.append([str(current_day), 'GPWOMBD', str(gp_time)])
+                            fouls.append([str(current_day), 'GPsinMBD', str(gp_time)])
                             foul_today = True
 
                 #df.loc[str(current_day), 'FALTAS'] = str(fouls)
@@ -183,7 +184,8 @@ def main():
 
     #Reordenar y modificar nombres de las columnas
     cols = df.columns.tolist()
-    cols = ['HORA_MBD', 'Aina', 'Aitor', 'Anton', 'Diego', 'Joaquín', 'Laura', 'Miranda', 'Paula', 'Sergio', 'HORA_DRG', 'MBD_TIPO', 'FALTAS']
+    #los nombres de los jugadores podrían ser cogidos de config.PLAYER_NAMES para que sea más facil añadir jugadores nuevos
+    cols = ['HORA_MBD', 'Aina', 'Aitor', 'Anton', 'Diego', 'Joaquín', 'Laura', 'Miranda', 'Nerea', 'Paula', 'Sergio', 'HORA_DRG', 'FALTAS', 'MBD_TIPO']
     df = df[cols]
 
     
@@ -194,6 +196,7 @@ def main():
         if config.MAKE_CSV:
             #Convierte la columna de faltas de lista a string. Solo debería usarse para exportar el csv
             df['FALTAS'] = df.FALTAS.apply(lambda x: ', '.join([str(i) for i in x]))
+            #pdf.to_excel('EXCEL.xlsx', encoding='utf-8')
             pdf.to_csv('out.csv', encoding='utf-8')
 
 

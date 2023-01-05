@@ -1,7 +1,7 @@
 #CONFIGURACIÓN
 
 #-------------------------GENERAL------------------------- #
-PLAYER_NAMES = ['Joaquín', 'Anton', 'Sergio', 'Aitor', 'Diego', 'Miranda', 'Paula', 'Laura', 'Aina']
+PLAYER_NAMES = ['Joaquín', 'Anton', 'Sergio', 'Aitor', 'Diego', 'Miranda', 'Paula', 'Laura', 'Aina', 'Nerea']
 
 #-------------------------GP-ENGINE------------------------#
 #Guarda un .csv con todos los datos en out.csv

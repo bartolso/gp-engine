@@ -6,10 +6,11 @@ El programa genera una tabla dónde por cada día aparece la hora del MBD, la ho
 La idea es que se revise la tabla y se decida qué faltas son legítimas y cuáles no. No se pretende procesar a la perfección el juego sino ayudar a hacerlo.
 
 ## Instrucciones
-- Instalar dependencias: ```pandas```, ```numpy```.
+- Instalar dependencias: ```pandas```, ```numpy```, ```openpyxl```
 ```
 $ pip install pandas
 $ pip install numpy
+$ pip install openpyxl
 ```
 - Colocar el chat exportado del grupo en ```/chats/chat.txt```. (Debe ser renombrado a ```chat.txt```)
 - Ejecutar ```main.py```
