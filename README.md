@@ -19,9 +19,12 @@ $ python main.py
 ```
 - Si no hay errores, se creará el archivo ```out.csv```. Google Sheets lo abre perfectamente, en excel a veces faltan valores por alguna razón.
 
-## Notas
-Dependiendo de quién exporte el chat y cómo tenga agregadas en los contactos al resto de personas podrían aparecer errores que me da mucha pereza comprobar. De momento si el chat es exportado por Aitor o Anton debería funcionar. 
+## Bugs
+ - Dependiendo de quién exporte el chat y cómo tenga agregadas en los contactos al resto de personas podrían aparecer errores que me da mucha pereza comprobar. De momento si el chat es exportado por Aitor o Anton debería funcionar. 
 Si es necesario, se pueden añadir otros nombres diferentes en ```read_txt()``` dentro de ```gp.py```...
+
+- Más de un mbd o drg en un mismo día puede dar error.
+
 
 
 
