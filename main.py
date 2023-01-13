@@ -42,6 +42,7 @@ class Player:
 
 #Procesa toda la lógica del juego e intenta determinar faltas.
 def run_days(df):
+    print('Procesando lógica del juego...')
 
     #Crea una nueva columna vacía en el dataframe general para las faltas (NO SON AMARILLAS)
     df['FALTAS'] = np.nan
@@ -171,6 +172,8 @@ def run_days(df):
 
 def main():
 
+    print('GP-ENGINE')
+
     df_gp = gp.make_dataframe()
     df_mbd = mbd.make_dataframe()
     df_drg = drg.make_dataframe()
@@ -198,6 +201,7 @@ def main():
             df['FALTAS'] = df.FALTAS.apply(lambda x: ', '.join([str(i) for i in x]))
             #pdf.to_excel('EXCEL.xlsx', encoding='utf-8')
             pdf.to_csv('out.csv', encoding='utf-8')
+            print('CSV EXPORTADO CON ÉXITO')
 
 
 

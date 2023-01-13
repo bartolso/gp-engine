@@ -155,5 +155,6 @@ cython_debug/
 #carpeta donde van los .txt directamente de whatsapp
 chats/
 
-#archivo csv
+#archivos csv
 out.csv
+out.xlsx

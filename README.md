@@ -18,6 +18,7 @@ $ pip install openpyxl
 $ python main.py
 ```
 - Si no hay errores, se creará el archivo ```out.csv```. Google Sheets lo abre perfectamente, en excel a veces faltan valores por alguna razón.
+- Cualquiera de los scripts ```gp.py``` ```mbd.py``` ```drg.py``` puede ser ejecutado independientemente para ver el dataframe.
 
 ## Bugs
  - Dependiendo de quién exporte el chat y cómo tenga agregadas en los contactos al resto de personas podrían aparecer errores que me da mucha pereza comprobar. De momento si el chat es exportado por Aitor o Anton debería funcionar. 
